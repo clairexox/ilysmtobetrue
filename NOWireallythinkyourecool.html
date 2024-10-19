@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Message</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffe6f2; /* Light pink background */
+            text-align: center;
+            color: #b30047; /* Dark pink for the text */
+        }
+
+        h1 {
+            font-size: 25px;
+            color: #b30047; /* Dark pink for the title */
+        }
+
+        .message {
+            font-size: 20px;
+            margin-top: 20px;
+            white-space: pre-wrap; /* Preserves line breaks */
+            padding: 0;
+            border: none;
+            background-color: transparent;
+            color: #b30047; /* Dark pink for confession text */
+        }
+
+        #yesButton, #noButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            background-color: #ff66b3; /* Pink button */
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #noButton {
+            background-color: #ff66b3; /* Same pink for no button */
+        }
+
+        #letter {
+            font-size: 19px;
+            margin-top: 20px;
+            padding: 10px;
+            border: 2px solid #ff66b3;
+            background-color: white;
+            color: #ff66b3;
+            cursor: pointer;
+            display: none; /* Hidden initially */
+            border-radius: 5px;
+            width: 100px;
+        }
+
+        #heart {
+            display: none;
+            font-size: 20px;
+            color: #ff3399;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>HAIIIIIII,please click yes. Pls.</h1>
+    <div>
+        <button id="yesButton">YEAHHH</button>
+        <button id="noButton">NAUR??????</button>
+    </div>
+
+    <div class="message" id="messageBox"></div>
+
+    <div id="letter">Click this pls?</div>
+    <div id="heart">For now and many more years to come, you'll always be the first person I confide in. Always be happy, Yhisha. Wherever you are, whoever youre with, be happy always. ❤️ #ily #saynotorejection</div>
+
+    <audio id="backgroundMusic" loop>
+        <source src="MP3/october.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        const yesButton = document.getElementById('yesButton');
+        const noButton = document.getElementById('noButton');
+        const messageBox = document.getElementById('messageBox');
+        const letter = document.getElementById('letter');
+        const heart = document.getElementById('heart');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+
+        yesButton.addEventListener('click', function() {
+            // Hide the buttons
+            yesButton.style.display = 'none';
+            noButton.style.display = 'none';
+
+            // Start the background music
+            backgroundMusic.play();
+
+            // Typing effect for the confession
+            const confession = "you really have been hiding in plain sight. or maybe its not as plain as i thought it would be? nevertheless, im just really lucky to be in the same timeline as you. oh yeah, did i mention i dont mind ending up being together with you? i dont think you'll weigh me down, because you know why? this. you motivate me to do better, and look as it turns out i still have some coding soul in me. in every problem theres always a solution, everytime you think youre weighing me down, ill just explain you wont....................... or will you? (cue amogus music)\n\n" + 
+                               "i think ive said that phrase more than i can count. i cant even think of what to say anymore at this point, im too... lost? in what to think of what to say next, im typing this as im calling you right now, sometimes my mind just goes blank, you know? its so crazy how the brain works, usually im a pretty good multiasker.\n\n" +
+                               "this is going to be lengthy, prepare yourself. get some water (NO COFFEE, YOUR ASS GOT COFFEE TWICE TODAY!!!!!) and sit back as you watch the text unfold... yes yes just like that, gud gud. are you still here? okay nice..... yesyesyes\n\n" +
+                               "i would be a big liar if i say i didnt ask chatgpt for help on this one.. the coding, i mean, not this paragraph i pulled out of my ass just now. i dont think even with chatgpt, i can perfectly portray what im about to say, do, and act. i gotta be myself to properly thank you, for staying up until now and hopefully forever. sometimes, i feel like were so.. much more that friends??????? HAHAHA delulu side showing but atleast let me dream.... i like our calls, our texting back and forth, playful banter, it just feels nice. it felt safe and just clearly heartwarming. so like, i know youre probs not lookin for someone like me or something but do i give a fuck? NAUR ILL STILL APPROACH YOU AND CONSTANTLY NAG YOU ALL THE TIME YEAAAAAHHHHH, ONE DAY YOU'LL BE MINE, WAIT FOR ME PLS!!!!!!!\n\n" +
+                               "anyway happy 90 years of us being together (yes, 90) you piss rat. ALSO TO BE 10000000% CLEAR IM NOT FORCING YOU TO DATE ME, NOT AT ALL! PLS AM NOT A HORRIBL PERSON im just.... convincing you and yeah.... WHENEVR YOURE READY OK YES YES I THINK THATS GOOOD HOW ABOUT THAT???????? ok ill end it here i have 0 rizz and negative face card..... we'll try to be the best versions of ourselves together. you never know if you never try, soooooo take a chance with me (NOT FORCING I SWEAR ILL BE HAPPY WHEN YOURE HAPPY BUT I ALSO SWEAR YOU'LL NEVER EVER EVRR EVRER BE A BURDEN TO ME!!!! NEVER!!!!!!!!!!!!!! if u believe u r a burden and useless that ill lobotomize you)?"
+            let index = 0;
+
+            function typeConfession() {
+                if (index < confession.length) {
+                    if (confession.charAt(index) === '\n') {
+                        messageBox.innerHTML += '<br>'; // Handle line breaks
+                    } else {
+                        messageBox.innerHTML += confession.charAt(index);
+                    }
+                    index++;
+                    setTimeout(typeConfession, 50);  // Adjust the typing speed here
+                } else {
+                    // After the typing ends, show the letter
+                    letter.style.display = 'inline-block';
+                }
+            }
+
+            typeConfession();
+        });
+
+        noButton.addEventListener('click', function() {
+            messageBox.innerHTML = "That's okay! Maybe another time. 😊  STARTS TO CRY AGGRESSIVELY WAHHHHHHH\n\n" +
+                                    "you evil asf........ anyway try again go refresh the page....";
+            yesButton.style.display = 'none';
+            noButton.style.display = 'none';
+        });
+
+        // Show the heart when the letter is clicked
+        letter.addEventListener('click', function() {
+            letter.style.display = 'none';
+            heart.style.display = 'block'; // Reveal the heart
+        });
+    </script>
+</body>
+</html>
